@@ -1,0 +1,14 @@
+{
+  "name": "cypress-darwoft-interview-test",
+  "version": "1.0.0",
+  "description": "Interview test for company Darwoft",
+  "main": "index.js",
+  "scripts": {
+    "cy:run": "node scripts/cypress.js --mode open"
+  },
+  "author": "Victor Santana",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^10.3.1"
+  }
+}
