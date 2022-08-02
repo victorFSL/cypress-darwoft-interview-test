@@ -31,7 +31,7 @@ describe("Mercado Libre - Smoke Test - User Flow to filter auto data", () => {
 
     describe('When the user presses the search button in the auto page', () => {
       beforeEach(() => {
-        cy.get(".andes-button--loud").scrollIntoView().should("be.visible").and("be.enabled").trigger("click")
+        cy.get(".andes-button--loud").scrollIntoView().should("be.visible").and("be.enabled").click()
         cy.wait('@menuDepartment')
       })
 
@@ -48,17 +48,14 @@ describe("Mercado Libre - Smoke Test - User Flow to filter auto data", () => {
       cy.visit('https://autos.mercadolibre.com.ar/')
     })
 
-    beforeEach(() => {
-    })
-
     filterLabels.forEach((label) => {
       describe(`And applies the '${label}' filter`, () => {
         before(() => {
-          cy.contains(".ui-search-filter-name", label).should("be.visible").click()
+          cy.contains(".ui-search-filter-name", label).scrollIntoView().should("be.visible").click()
         })
 
         it(`Then the label '${label}' is shown in the applied filtered section`, () => {
-          cy.get(".andes-tag__label").should("contain", label)
+          cy.get(".andes-tag__label").scrollIntoView().should("contain", label)
         })
       })
     })
@@ -68,7 +65,7 @@ describe("Mercado Libre - Smoke Test - User Flow to filter auto data", () => {
       let defaultLabel = "Más relevantes"
 
       before(() => {
-        cy.contains(".ui-search-sort-filter button", defaultLabel ).and("be.enabled").trigger('click')
+        cy.contains(".ui-search-sort-filter button", defaultLabel ).and("be.enabled").click()
         cy.get("#andes-dropdown-más-relevantes-list-option-price_asc").click({ force: true })
       })
 
